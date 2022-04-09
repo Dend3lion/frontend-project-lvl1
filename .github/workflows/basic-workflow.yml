@@ -1,0 +1,8 @@
+name: basic-workflow
+on: [push]
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run ESLint
+        run: make lint
