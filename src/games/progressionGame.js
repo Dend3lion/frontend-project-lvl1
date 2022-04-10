@@ -3,19 +3,20 @@ import playGame from '../index.js';
 const getRandInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 const progressionExpression = (expression) => {
-  const progression = expression.split(' ');
-  const missingIndex = progression.indexOf('..');
+  const progr = expression.split(' ');
+  const missingIndex = progr.indexOf('..');
+  const progrLen = progr.length;
 
   if (missingIndex === 0) {
-    const step = (Number(progression[2]) - Number(progression[1]));
-    return Number(progression[1]) - step;
-  } 
-  if (missingIndex === progression.length - 1) {
-    const step = (Number(progression[progression.length - 2]) - Number(progression[progression.length - 3]));
-    return Number(progression[progression.length - 2]) + step;
+    const step = (Number(progr[2]) - Number(progr[1]));
+    return Number(progr[1]) - step;
   }
-  
-  return (Number(progression[missingIndex + 1]) + Number(progression[missingIndex - 1]))/2;
+  if (missingIndex === progrLen - 1) {
+    const step = (Number(progr[progrLen - 2]) - Number(progr[progrLen - 3]));
+    return Number(progr[progrLen - 2]) + step;
+  }
+
+  return (Number(progr[missingIndex + 1]) + Number(progr[missingIndex - 1])) / 2;
 };
 
 const getExpression = () => {
@@ -29,9 +30,9 @@ const getExpression = () => {
   const step = getRandInt(MIN_STEP, MAX_STEP);
   const missingNum = getRandInt(0, PROGRESSION_NUMS);
 
-  let result = [];
+  const result = [];
 
-  for (let i = 0; i < PROGRESSION_NUMS; i++) {
+  for (let i = 0; i < PROGRESSION_NUMS; i += 1) {
     const value = (i !== missingNum) ? firstNum + i * step : '..';
     result.push(value);
   }

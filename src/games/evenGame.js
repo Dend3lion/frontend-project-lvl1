@@ -1,6 +1,5 @@
 import playGame from '../index.js';
 
-// Возвращает генератор рандомного числа в заданном диапазоне
 const getRandIntFunc = (min, max) => () => Math.floor(Math.random() * (max - min)) + min;
 
 const checkEven = (number) => ((number % 2 === 0) ? 'yes' : 'no');
