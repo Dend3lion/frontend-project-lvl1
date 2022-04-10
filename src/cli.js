@@ -13,7 +13,7 @@ export const getName = () => {
 };
 
 export const getUserAnswer = (question) => {
-  output(question);
+  output(`Question: ${question}`);
   const answer = input('Your answer: ');
 
   return answer;
