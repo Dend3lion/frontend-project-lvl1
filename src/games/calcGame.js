@@ -23,7 +23,7 @@ const calcExpression = (expression) => {
   return result;
 };
 
-const getMathExpression = () => {
+const getExpression = () => {
   const OPERATORS = ['+', '-', '*'];
   const MIN_RANDOM = 0;
   const MAX_RANDOM = 10;
@@ -35,10 +35,10 @@ const getMathExpression = () => {
   return (operator === '-' && firstNum - secondNum < 0) ? `${secondNum} ${operator} ${firstNum}` : `${firstNum} ${operator} ${secondNum}`;
 };
 
-const calculator = () => {
+const calcGame = () => {
   const RULES = 'What is the result of the expression?';
 
-  playGame(RULES, getMathExpression, calcExpression);
+  playGame(RULES, getExpression, calcExpression);
 };
 
-export default calculator;
+export default calcGame;
