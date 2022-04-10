@@ -1,7 +1,5 @@
 # Brain Games
 
-Brain Games is a JS-study project
-
 
 ## Description
 
